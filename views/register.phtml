@@ -1,0 +1,45 @@
+<br />
+<div class="center-box-wrapper">
+    <div class="center-box bordered">
+        <h1>Registrieren</h1>
+        <br />
+        <form method="post" action="/StickFlix/?site=register">
+            <p>Username</p>
+            <input type="text" name="username" class="rounded" value="<?=$username?>" required/>
+
+            <?php 
+            if (!empty($userError)) {
+                echo '<p class="error">' . $userError . '</p>';
+            } else {
+                echo '<br/>';
+            }
+            ?>
+
+            <br/>
+            <p>Passwort</p>
+            <input type="password" name="password" class="rounded" value="" required/>
+            <br/><br/>
+            <p>Passwort wiederholen</p>
+            <input type="password" name="password_repeat" class="rounded" value="" required/>
+
+            <?php 
+            if (!empty($passwordError)) {
+                echo '<p class="error">' . $passwordError . '</p>';
+            } else {
+                echo '<br/>';
+            }
+            ?>
+            
+            <br/>
+            <p>Vorname</p>
+            <input type="text" name="firstname" class="rounded" value="<?=$firstname?>" required/>
+            <br/><br/>
+            <p>Nachname</p>
+            <input type="text" name="lastname" class="rounded" value="<?=$lastname?>" required/>
+            <br/><br/>
+            <input type="submit" value="Registrieren" class="flix_submit rounded"/>
+        </form>
+        <br/><br/>
+        <p>Bereits angemeldet? <a href="/StickFlix/?site=login">Einloggen</a></p>
+    </div>
+</div>

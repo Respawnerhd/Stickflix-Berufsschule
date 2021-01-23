@@ -9,6 +9,6 @@ class Navbar implements Controller{
     }
 
     public function build() {
-        require_once 'views/navbar.html';
+        require_once 'views/navbar.phtml';
     }
 }

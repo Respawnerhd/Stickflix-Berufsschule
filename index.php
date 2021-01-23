@@ -2,23 +2,29 @@
 require_once 'controller/navbar.php';
 require_once 'includes/controller_factory.php';
 
+session_start();
+
 // Check login status
-// TODO: Extend with Database?
-$loginStatus = !empty($_COOKIE["loginStatus"]);
+// Possible Future Addition: Extend with Database
+$loginStatus = !empty($_SESSION["loginStatus"]);
 
 // Decision which side to open
-$site = $_GET["site"] ?? null;
+if (!empty($_GET["site"])) {
+    $site = $_GET["site"];
+} else {
+    $site = null;
+}
 
 if ($loginStatus && empty($site)) {
     $site = "home";
-} else if (!$loginStatus) {
+} else if (!$loginStatus && $site != "login" && $site != "register") {
     $site = "login";
 }
 
 $controller = ControllerFactory::ofType($site);
 
 // 1.   Header information
-require_once 'head.html';
+require_once 'includes/head.phtml';
 
 // 2.   Body
 // 2.1  Navbar
@@ -28,4 +34,4 @@ $navbar->build();
 $controller->build();
 
 // 3.   Foot
-require_once 'foot.html';
+require_once 'includes/foot.phtml';

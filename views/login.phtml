@@ -1,0 +1,28 @@
+<br />
+<div class="center-box-wrapper">
+    <div class="center-box bordered">
+        <h1>Login</h1>
+        <br />
+        <form method="post">
+            <p>Username</p>
+            <input type="text" name="username" class="rounded" required/>
+            <br/>
+            <br/>
+            <p>Passwort</p>
+            <input type="password" name="password" class="rounded" required/>
+
+            <?php 
+            if (!empty($errorMessage)) {
+                echo '<p class="error">' . $errorMessage . '</p>';
+            } else {
+                echo '<br/>';
+            }
+            ?>
+            
+            <br/>
+            <input type="submit" value="Einloggen" class="flix_submit rounded"/>
+        </form>
+        <br/><br/>
+        <p>Noch kein Konto? <a href="/StickFlix/?site=register">Registrieren</a></p>
+    </div>
+</div>

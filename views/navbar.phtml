@@ -1,0 +1,27 @@
+<nav class="navigation-bar">
+    <a href="/StickFlix/"><img class="logo" src="images/logo.png"></a>
+
+<?php 
+if (!empty($_SESSION["loginStatus"]) && $_SESSION["loginStatus"]) {
+?>
+
+    <ul>
+        <li><p>Willkommen <?=htmlentities($_SESSION["firstname"])?></p></li>
+    </ul>
+    <ul class="float-right">
+        <li><a href="/StickFlix/?site=logout" class="highlight-hover">Logout</a></li>
+    </ul>
+
+<?php
+} else {
+?>
+
+    <ul>
+        <li><p>Willkommen bei Stickflix!</p></li>
+    </ul>
+
+<?php
+}
+?>
+
+</nav>
